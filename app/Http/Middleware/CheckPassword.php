@@ -18,7 +18,7 @@ class CheckPassword
      */
     public function handle(Request $request, Closure $next):JsonResponse|RedirectResponse
     {
-        if(!isset($request->password) || $request->password !== env('PASSWORD','DEFAULT_PASSWORD'))
+        if(!isset($request->app_password) || $request->app_password !== env('APP_PASSWORD','DEFAULT_PASSWORD'))
         {
             return response()->json([
                 'status'=>false,

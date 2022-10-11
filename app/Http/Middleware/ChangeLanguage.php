@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Http\JsonResponse;
 
 class ChangeLanguage
 {
@@ -13,10 +13,10 @@ class ChangeLanguage
      * Handle an incoming request.
      *
      * @param Request $request
-     * @param Closure(Request): (Response|RedirectResponse) $next
-     * @return Response|RedirectResponse
+     * @param Closure(Request): (JsonResponse|RedirectResponse) $next
+     * @return JsonResponse|RedirectResponse
      */
-    public function handle(Request $request, Closure $next): Response|RedirectResponse
+    public function handle(Request $request, Closure $next): JsonResponse|RedirectResponse
     {
         app()->setLocale('en');
         if(isset($request->lang) && $request->lang === 'ar')

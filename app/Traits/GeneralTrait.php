@@ -23,7 +23,7 @@ trait GeneralTrait
             'msg'=>$message,
         ]);
     }
-    public function returnData(string $key, $data, string $message,string $code='S000'): JsonResponse
+    public function returnData(string $key, $data, string $message='',string $code='S000'): JsonResponse
     {
         return response()->json([
             'status'=>true,
