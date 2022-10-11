@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('codes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('code');
+            $table->foreignId('user_id')->constrained('users','id')->cascadeOnDelete();
             $table->timestamps();
         });
     }
