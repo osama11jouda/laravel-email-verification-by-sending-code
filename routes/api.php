@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\UserController;
 use Illuminate\Support\Facades\Route;
+use PharIo\Manifest\AuthorCollection;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,19 @@ use Illuminate\Support\Facades\Route;
 //Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
+//for test
+Route::get('/mail',function (){
+    return view('mail');
+});
 
 Route::group(['middleware'=>['api','password','lang']],static function(){
     Route::group(['prefix'=>'user'],static function(){
         Route::post('register',[UserController::class,'register']);
         Route::post('login',[UserController::class,'login']);
+
+        Route::group(['middleware'=>''],static function(){
+            Route::post('send_code',[AuthorCollection::class,'sendCode']);
+        });
+
     });
 });
