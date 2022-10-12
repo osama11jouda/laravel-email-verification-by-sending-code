@@ -50,10 +50,11 @@ class VerificationController extends Controller
         try {
             /** @var User $user **/
             $user = Auth::user();
-            $code = Code::where('user_id',$user->id)->first();
+            $code = Code::where('user_id',$user->id)->latest()->first();
             if(isset($request->code) && $request->code === $code->code)
             {
                 $user->markEmailAsVerified();
+                Code::where('user_id',$user->id)->delete();
                 return $this->returnSuccessMessage('email has been verified successfully.');
             }else{
                 return $this->returnError('the code is not correct');
