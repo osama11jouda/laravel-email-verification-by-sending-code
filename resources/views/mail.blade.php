@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-lg-3"></div>
                 <div class="col-lg-6 bg-light mt-5 pt-5 pb-5 border ">
-                    <h3 class="">Your Code Is: <span class="border ps-1 pe-1 pt-1 pb-1 "> <b>{{$code}}</b> </span></h3>
+                    <h3 class="">Your Code Is: <span class="border ps-1 pe-1 pt-1 pb-1 "> <b>{{$data['code']}}</b> </span></h3>
                 </div>
                 <div class="col-lg-3"></div>
             </div>
