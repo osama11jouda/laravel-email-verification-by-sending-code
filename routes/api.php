@@ -31,6 +31,7 @@ Route::group(['middleware'=>['api','password','lang']],static function(){
 
         Route::group(['middleware'=>['auth:sanctum', 'abilities:user']],static function(){
             Route::post('send_code',[VerificationController::class,'sendEmailWithCode']);
+            Route::post('verify_email',[VerificationController::class,'verifyEmailWithCode']);
         });
 
     });
